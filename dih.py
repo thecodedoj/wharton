@@ -103,4 +103,11 @@ def calculate_elo(json_input, k_factor=40):
     return ratings
 
     return dict(current_ratings)     
-calculate_elo(json_string)
+# Run and Save
+final_ratings = calculate_elo(json_string)
+
+# Save final standings to JSON
+with open('standings.json', 'w') as f:
+    json.dump(final_ratings, f, indent=4)
+
+print("Standings saved to standings.json")
